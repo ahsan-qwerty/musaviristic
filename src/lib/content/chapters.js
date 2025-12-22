@@ -1,4 +1,4 @@
-import chapters from "../../content/chapters.json";
+import chapters from "../../../content/chapters.json";
 
 /**
  * @typedef {Object} Chapter

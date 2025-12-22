@@ -1,4 +1,4 @@
-import novels from "../../content/novels.json";
+import novels from "../../../content/novels.json";
 
 /**
  * @typedef {Object} Novel
