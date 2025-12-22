@@ -1,0 +1,24 @@
+[
+  {
+    "id": "article-1",
+    "title": "First Article",
+    "slug": "first-article",
+    "content": "Content for the first article.",
+    "featuredImage": "/images/article-1.jpg",
+    "authorId": "author-1",
+    "publishDate": "2024-01-01T00:00:00.000Z",
+    "tags": ["tag-one", "tag-two"]
+  },
+  {
+    "id": "article-2",
+    "title": "Second Article",
+    "slug": "second-article",
+    "content": "Content for the second article.",
+    "featuredImage": "/images/article-2.jpg",
+    "authorId": "author-2",
+    "publishDate": "2024-02-01T00:00:00.000Z",
+    "tags": ["tag-two"]
+  }
+]
+
+

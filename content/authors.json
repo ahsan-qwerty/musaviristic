@@ -1,0 +1,16 @@
+[
+  {
+    "id": "author-1",
+    "name": "Author One",
+    "bio": "Bio for Author One.",
+    "profileImage": "/images/author-one.jpg"
+  },
+  {
+    "id": "author-2",
+    "name": "Author Two",
+    "bio": "Bio for Author Two.",
+    "profileImage": "/images/author-two.jpg"
+  }
+]
+
+

@@ -1,0 +1,28 @@
+[
+  {
+    "id": "chapter-1",
+    "novelSlug": "first-novel",
+    "chapterNumber": 1,
+    "title": "Chapter One",
+    "content": "Content for chapter one.",
+    "publishDate": "2024-03-01T00:00:00.000Z"
+  },
+  {
+    "id": "chapter-2",
+    "novelSlug": "first-novel",
+    "chapterNumber": 2,
+    "title": "Chapter Two",
+    "content": "Content for chapter two.",
+    "publishDate": "2024-03-08T00:00:00.000Z"
+  },
+  {
+    "id": "chapter-3",
+    "novelSlug": "first-novel",
+    "chapterNumber": 3,
+    "title": "Chapter Three",
+    "content": "Content for chapter three.",
+    "publishDate": "2024-03-15T00:00:00.000Z"
+  }
+]
+
+

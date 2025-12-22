@@ -1,9 +1,11 @@
 // Central content access layer.
-// All article, novel, chapter, and author data will be fetched through
-// functions defined in this module in a later phase.
+// Pages and components should import from this module (or its re-exports)
+// instead of reading from /content directly.
 
-export async function notImplemented() {
-  throw new Error("Content access layer is not implemented yet.");
-}
+export * from "./authors";
+export * from "./articles";
+export * from "./novels";
+export * from "./chapters";
+
 
 
