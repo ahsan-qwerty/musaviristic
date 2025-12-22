@@ -14,7 +14,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }) {
-  const author = getAuthorById(params.id);
+  const { id } = await params
+  const author = getAuthorById(id);
 
   if (!author) {
     return {
@@ -27,8 +28,9 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default function AuthorPage({ params }) {
-  const author = getAuthorById(params.id);
+export default async function AuthorPage({ params }) {
+  const { id } = await params
+  const author = getAuthorById(id);
 
   if (!author) {
     notFound();
@@ -59,7 +61,7 @@ export default function AuthorPage({ params }) {
               <ArticleCard
                 key={article.id}
                 article={article}
-                href={`/articles/${article.slug}`}
+                href={`/articles/${article.id}`}
                 meta={
                   <time dateTime={article.publishDate}>
                     {new Date(article.publishDate).toLocaleDateString()}
@@ -82,7 +84,7 @@ export default function AuthorPage({ params }) {
               <NovelCard
                 key={novel.id}
                 novel={novel}
-                href={`/novels/${novel.slug}`}
+                href={`/novels/${novel.id}`}
               />
             ))}
           </div>

@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { getAllNovels, getNovelBySlug } from "@/lib/content/novels";
+import { getAllNovels, getNovelById } from "@/lib/content/novels";
 import { getChaptersForNovel } from "@/lib/content/chapters";
 import { getAuthorById } from "@/lib/content/authors";
 import Link from "next/link";
@@ -8,12 +8,13 @@ export async function generateStaticParams() {
   const novels = getAllNovels();
 
   return novels.map((novel) => ({
-    slug: novel.slug,
+    id: novel.id,
   }));
 }
 
 export async function generateMetadata({ params }) {
-  const novel = getNovelBySlug(params.slug);
+  const { id } = await params
+  const novel = getNovelById(id);
 
   if (!novel) {
     return {
@@ -26,14 +27,15 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default function NovelDetailPage({ params }) {
-  const novel = getNovelBySlug(params.slug);
+export default async function NovelDetailPage({ params }) {
+  const { id } = await params
+  const novel = getNovelById(id);
 
   if (!novel) {
     notFound();
   }
 
-  const chapters = getChaptersForNovel(novel.slug);
+  const chapters = getChaptersForNovel(novel.id);
   const author = getAuthorById(novel.authorId);
 
   return (
@@ -63,7 +65,7 @@ export default function NovelDetailPage({ params }) {
           {chapters.map((chapter) => (
             <li key={chapter.id}>
               <Link
-                href={`/novels/${novel.slug}/chapters/${chapter.chapterNumber}`}
+                href={`/novels/${novel.id}/chapters/${chapter.chapterNumber}`}
                 className="text-sm font-medium hover:underline"
               >
                 {chapter.title}

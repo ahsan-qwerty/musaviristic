@@ -4,7 +4,6 @@ import novels from "../../../content/novels.json";
  * @typedef {Object} Novel
  * @property {string} id
  * @property {string} title
- * @property {string} slug
  * @property {string} description
  * @property {string} coverImage
  * @property {string} authorId
@@ -20,12 +19,21 @@ export function getAllNovels() {
 }
 
 /**
- * Get a single novel by its slug.
- * @param {string} slug
+ * Get a single novel by its id.
+ * @param {string} id
  * @returns {Novel | undefined}
  */
-export function getNovelBySlug(slug) {
-  return novels.find((novel) => novel.slug === slug);
+export function getNovelById(id) {
+  return novels.find((novel) => novel.id === id);
+}
+
+/**
+ * Get all novels written by a given author.
+ * @param {string} id
+ * @returns {Novel | undefined}
+ */
+export function getNovelByAuthorId(id) {
+  return novels.find((novel) => novel.id === id);
 }
 
 /**

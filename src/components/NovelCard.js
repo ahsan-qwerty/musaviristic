@@ -5,7 +5,6 @@ import Link from "next/link";
  * @typedef {Object} Novel
  * @property {string} id
  * @property {string} title
- * @property {string} slug
  * @property {string} description
  * @property {string} coverImage
  * @property {string} authorId

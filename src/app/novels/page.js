@@ -15,7 +15,7 @@ export default function NovelsPage() {
           <NovelCard
             key={novel.id}
             novel={novel}
-            href={`/novels/${novel.slug}`}
+            href={`/novels/${novel.id}`}
           />
         ))}
       </section>

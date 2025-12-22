@@ -3,7 +3,7 @@ import chapters from "../../../content/chapters.json";
 /**
  * @typedef {Object} Chapter
  * @property {string} id
- * @property {string} novelSlug
+ * @property {string} novelId
  * @property {number} chapterNumber
  * @property {string} title
  * @property {string} content
@@ -12,25 +12,25 @@ import chapters from "../../../content/chapters.json";
 
 /**
  * Get all chapters for a given novel, sorted by chapterNumber.
- * @param {string} novelSlug
+ * @param {string} novelId
  * @returns {Chapter[]}
  */
-export function getChaptersForNovel(novelSlug) {
+export function getChaptersForNovel(novelId) {
   return chapters
-    .filter((chapter) => chapter.novelSlug === novelSlug)
+    .filter((chapter) => chapter.novelId === novelId)
     .sort((a, b) => a.chapterNumber - b.chapterNumber);
 }
 
 /**
  * Get a single chapter for a novel by chapter number.
- * @param {string} novelSlug
+ * @param {string} novelId
  * @param {number} chapterNumber
  * @returns {Chapter | undefined}
  */
-export function getChapterByNovelAndNumber(novelSlug, chapterNumber) {
+export function getChapterByNovelAndNumber(novelId, chapterNumber) {
   return chapters.find(
     (chapter) =>
-      chapter.novelSlug === novelSlug &&
+      chapter.novelId === novelId &&
       chapter.chapterNumber === chapterNumber
   );
 }

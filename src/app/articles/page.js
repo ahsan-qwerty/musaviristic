@@ -15,7 +15,7 @@ export default function ArticlesPage() {
           <ArticleCard
             key={article.id}
             article={article}
-            href={`/articles/${article.slug}`}
+            href={`/articles/${article.id}`}
             meta={
               <time dateTime={article.publishDate}>
                 {new Date(article.publishDate).toLocaleDateString()}

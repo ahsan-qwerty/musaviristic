@@ -1,7 +1,7 @@
 [
   {
     "id": "chapter-1",
-    "novelSlug": "first-novel",
+    "novelId": "novel-1",
     "chapterNumber": 1,
     "title": "Chapter One",
     "content": "Content for chapter one.",
@@ -9,7 +9,7 @@
   },
   {
     "id": "chapter-2",
-    "novelSlug": "first-novel",
+    "novelId": "novel-1",
     "chapterNumber": 2,
     "title": "Chapter Two",
     "content": "Content for chapter two.",
@@ -17,7 +17,7 @@
   },
   {
     "id": "chapter-3",
-    "novelSlug": "first-novel",
+    "novelId": "novel-1",
     "chapterNumber": 3,
     "title": "Chapter Three",
     "content": "Content for chapter three.",

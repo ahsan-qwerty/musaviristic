@@ -4,7 +4,6 @@ import articles from "../../../content/articles.json";
  * @typedef {Object} Article
  * @property {string} id
  * @property {string} title
- * @property {string} slug
  * @property {string} content
  * @property {string} featuredImage
  * @property {string} authorId
@@ -21,12 +20,21 @@ export function getAllArticles() {
 }
 
 /**
- * Get a single article by its slug.
- * @param {string} slug
+ * Get a single article by its id.
+ * @param {string} id
  * @returns {Article | undefined}
  */
-export function getArticleBySlug(slug) {
-  return articles.find((article) => article.slug === slug);
+export function getArticleById(id) {
+  return articles.find((article) => article.id === id);
+}
+
+/**
+ * Get all articles written by a given author.
+ * @param {string} id
+ * @returns {Article | undefined}
+ */
+export function getArticleByAuthorId(authorId) {
+  return articles.filter((article) => article.authorId === authorId);
 }
 
 /**

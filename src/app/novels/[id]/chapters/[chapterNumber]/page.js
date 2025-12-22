@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { getAllNovels, getNovelBySlug } from "@/lib/content/novels";
+import { getAllNovels, getNovelById } from "@/lib/content/novels";
 import {
   getChaptersForNovel,
   getChapterByNovelAndNumber,
@@ -12,11 +12,11 @@ export async function generateStaticParams() {
   const params = [];
 
   for (const novel of novels) {
-    const chapters = getChaptersForNovel(novel.slug);
+    const chapters = getChaptersForNovel(novel.id);
 
     for (const chapter of chapters) {
       params.push({
-        slug: novel.slug,
+        id: novel.id,
         chapterNumber: String(chapter.chapterNumber),
       });
     }
@@ -26,10 +26,10 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }) {
-  const novel = getNovelBySlug(params.slug);
-  const chapterNumber = Number(params.chapterNumber);
+  const { id, chapterNumber } = await params
+  const novel = getNovelById(id);
   const chapter = Number.isFinite(chapterNumber)
-    ? getChapterByNovelAndNumber(params.slug, chapterNumber)
+    ? getChapterByNovelAndNumber(novel?.id ?? "", chapterNumber)
     : undefined;
 
   if (!novel || !chapter) {
@@ -43,21 +43,22 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default function ChapterPage({ params }) {
-  const novel = getNovelBySlug(params.slug);
+export default async function ChapterPage({ params }) {
+  let { id , chapterNumber} = await params
+  const novel = getNovelById(id);
 
   if (!novel) {
     notFound();
   }
 
-  const chapterNumber = Number(params.chapterNumber);
+  chapterNumber = Number(chapterNumber);
 
   if (!Number.isFinite(chapterNumber)) {
     notFound();
   }
 
-  const chapters = getChaptersForNovel(novel.slug);
-  const chapter = getChapterByNovelAndNumber(novel.slug, chapterNumber);
+  const chapters = getChaptersForNovel(novel.id);
+  const chapter = getChapterByNovelAndNumber(novel.id, chapterNumber);
 
   if (!chapter) {
     notFound();
@@ -68,19 +69,18 @@ export default function ChapterPage({ params }) {
     (item) => item.chapterNumber === chapter.chapterNumber
   );
 
-  const previousChapter =
-    index > 0 ? chapters[index - 1] : null;
+  const previousChapter = index > 0 ? chapters[index - 1] : null;
   const nextChapter =
     index >= 0 && index < chapters.length - 1
       ? chapters[index + 1]
       : null;
 
   const previousHref = previousChapter
-    ? `/novels/${novel.slug}/chapters/${previousChapter.chapterNumber}`
+    ? `/novels/${novel.id}/chapters/${previousChapter.chapterNumber}`
     : null;
 
   const nextHref = nextChapter
-    ? `/novels/${novel.slug}/chapters/${nextChapter.chapterNumber}`
+    ? `/novels/${novel.id}/chapters/${nextChapter.chapterNumber}`
     : null;
 
   return (
@@ -107,5 +107,3 @@ export default function ChapterPage({ params }) {
     </main>
   );
 }
-
-

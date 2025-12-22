@@ -2,7 +2,6 @@
   {
     "id": "novel-1",
     "title": "First Novel",
-    "slug": "first-novel",
     "description": "Description for the first novel.",
     "coverImage": "/images/novel-1.jpg",
     "authorId": "author-1",

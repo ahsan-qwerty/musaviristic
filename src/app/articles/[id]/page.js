@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { getAllArticles, getArticleBySlug } from "@/lib/content/articles";
+import { getAllArticles, getArticleById } from "@/lib/content/articles";
 import { getAuthorById } from "@/lib/content/authors";
 import Link from "next/link";
 
@@ -7,12 +7,13 @@ export async function generateStaticParams() {
   const articles = getAllArticles();
 
   return articles.map((article) => ({
-    slug: article.slug,
+    id: article.id,
   }));
 }
 
 export async function generateMetadata({ params }) {
-  const article = getArticleBySlug(params.slug);
+  const { id } = await params
+  const article = getArticleById(id);
 
   if (!article) {
     return {
@@ -25,8 +26,9 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default function ArticleDetailPage({ params }) {
-  const article = getArticleBySlug(params.slug);
+export default async function ArticleDetailPage({ params }) {
+  const { id } = await params
+  const article = getArticleById(id);
 
   if (!article) {
     notFound();

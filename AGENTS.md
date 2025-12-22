@@ -57,19 +57,19 @@ Pages may only import from `/lib/content`.
 **Article**
 
 ```ts
-{ id, title, slug, content, featuredImage, authorId, publishDate, tags? }
+{ id, title, content, featuredImage, authorId, publishDate, tags? }
 ```
 
 **Novel**
 
 ```ts
-{ id, title, slug, description, coverImage, authorId, status }
+{ id, title, description, coverImage, authorId, status }
 ```
 
 **Chapter**
 
 ```ts
-{ id, novelSlug, chapterNumber, title, content, publishDate }
+{ id, chapterNumber, title, content, publishDate }
 ```
 
 ---
