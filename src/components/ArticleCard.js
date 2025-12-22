@@ -23,9 +23,9 @@ import Link from "next/link";
  */
 export function ArticleCard({ article, href, imageAlt, meta }) {
   return (
-    <article className="group flex flex-col overflow-hidden rounded-xl border bg-background shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
+    <article className="group flex flex-col overflow-hidden rounded-2xl border border-foreground/10 bg-background/95 shadow-sm transition duration-200 hover:-translate-y-0.5 hover:border-foreground/20 hover:shadow-md">
       {article.featuredImage ? (
-        <div className="relative aspect-[16/9] w-full overflow-hidden">
+        <div className="relative aspect-[16/9] w-full overflow-hidden bg-foreground/5">
           <Image
             src={article.featuredImage}
             alt={imageAlt || ""}
@@ -37,15 +37,18 @@ export function ArticleCard({ article, href, imageAlt, meta }) {
         </div>
       ) : null}
 
-      <div className="flex flex-1 flex-col gap-3 px-4 py-3">
-        <h3 className="line-clamp-2 text-base font-semibold tracking-tight">
-          <Link href={href} className="inline-block no-underline">
+      <div className="flex flex-1 flex-col gap-3 px-4 py-4 sm:px-5 sm:py-5">
+        <h3 className="line-clamp-2 text-sm font-semibold tracking-tight sm:text-base">
+          <Link
+            href={href}
+            className="inline-block no-underline transition-colors hover:text-foreground/80"
+          >
             {article.title}
           </Link>
         </h3>
 
         {meta ? (
-          <div className="text-xs text-foreground/70">{meta}</div>
+          <div className="text-xs text-foreground/60">{meta}</div>
         ) : null}
       </div>
     </article>

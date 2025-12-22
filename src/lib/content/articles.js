@@ -1,4 +1,4 @@
-import articles from "../../../content/articles.json";
+import {ARTICLES} from "../../../content/articles";
 
 /**
  * @typedef {Object} Article
@@ -16,7 +16,7 @@ import articles from "../../../content/articles.json";
  * @returns {Article[]}
  */
 export function getAllArticles() {
-  return articles;
+  return ARTICLES;
 }
 
 /**
@@ -25,7 +25,7 @@ export function getAllArticles() {
  * @returns {Article | undefined}
  */
 export function getArticleById(id) {
-  return articles.find((article) => article.id === id);
+  return ARTICLES.find((article) => article.id === id);
 }
 
 /**
@@ -34,7 +34,7 @@ export function getArticleById(id) {
  * @returns {Article | undefined}
  */
 export function getArticleByAuthorId(authorId) {
-  return articles.filter((article) => article.authorId === authorId);
+  return ARTICLES.filter((article) => article.authorId === authorId);
 }
 
 /**
@@ -43,7 +43,7 @@ export function getArticleByAuthorId(authorId) {
  * @returns {Article[]}
  */
 export function getArticlesByAuthorId(authorId) {
-  return articles.filter((article) => article.authorId === authorId);
+  return ARTICLES.filter((article) => article.authorId === authorId);
 }
 
 

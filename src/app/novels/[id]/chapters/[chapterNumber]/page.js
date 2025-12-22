@@ -84,26 +84,28 @@ export default async function ChapterPage({ params }) {
     : null;
 
   return (
-    <main className="mx-auto flex max-w-3xl flex-col gap-6 px-4 py-8">
-      <header className="flex flex-col gap-1">
-        <p className="text-xs font-medium uppercase tracking-wide text-foreground/70">
-          {/* Label only, not content. */}
-          Chapter
-        </p>
-        <h1 className="text-2xl font-semibold tracking-tight">
-          {chapter.title}
-        </h1>
-      </header>
+    <main className="mx-auto flex max-w-3xl flex-col px-4 py-10 sm:px-6 lg:px-0 lg:py-14">
+      <div className="rounded-3xl border border-foreground/10 bg-background/95 px-5 py-7 shadow-sm sm:px-7 sm:py-8 lg:px-10 lg:py-10">
+        <header className="mb-6 flex flex-col gap-1 sm:mb-7">
+          <p className="text-xs font-medium uppercase tracking-[0.18em] text-foreground/60">
+            {/* Label only, not content. */}
+            Chapter
+          </p>
+          <h1 className="text-2xl font-semibold tracking-tight sm:text-3xl sm:leading-tight">
+            {chapter.title}
+          </h1>
+        </header>
 
-      <article
-        className="prose max-w-none dark:prose-invert"
-        dangerouslySetInnerHTML={{ __html: chapter.content }}
-      />
+        <article
+          className="text-[15px] leading-relaxed sm:text-base sm:leading-8"
+          dangerouslySetInnerHTML={{ __html: chapter.content }}
+        />
 
-      <ChapterNavigation
-        previousHref={previousHref}
-        nextHref={nextHref}
-      />
+        <ChapterNavigation
+          previousHref={previousHref}
+          nextHref={nextHref}
+        />
+      </div>
     </main>
   );
 }

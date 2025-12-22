@@ -112,9 +112,9 @@ export default function Home() {
   const highlighted = getHighlightedAuthor();
 
   return (
-    <main className="mx-auto flex max-w-5xl flex-col gap-10 px-4 py-8">
+    <main className="mx-auto flex max-w-5xl flex-col gap-10 px-4 py-10 sm:px-6 lg:px-0 lg:py-14">
       {featuredArticle ? (
-        <section className="space-y-3">
+        <section className="space-y-4">
           <h2 className="text-lg font-semibold tracking-tight">
             {/* Label only, not content. */}
             Featured article
@@ -132,16 +132,16 @@ export default function Home() {
       ) : null}
 
       {latestChapters.length > 0 ? (
-        <section className="space-y-3">
+        <section className="space-y-4">
           <h2 className="text-lg font-semibold tracking-tight">
             {/* Label only, not content. */}
             Latest chapters
           </h2>
-          <ul className="space-y-2">
+          <ul className="divide-y divide-foreground/10 rounded-3xl border border-foreground/10 bg-background/95">
             {latestChapters.map((chapter) => (
               <li
                 key={chapter.id}
-                className="flex items-baseline justify-between gap-4 border-b pb-2"
+                className="flex items-baseline justify-between gap-4 px-4 py-3 sm:px-5"
               >
                 <div className="flex flex-col">
                   <Link
@@ -167,12 +167,12 @@ export default function Home() {
       ) : null}
 
       {highlighted ? (
-        <section className="space-y-3">
+        <section className="space-y-4">
           <h2 className="text-lg font-semibold tracking-tight">
             {/* Label only, not content. */}
             Author highlight
           </h2>
-          <div className="rounded-xl border bg-background px-4 py-3 shadow-sm">
+          <div className="rounded-3xl border border-foreground/10 bg-background/95 px-5 py-4 shadow-sm sm:px-6 sm:py-5">
             <Link
               href={`/authors/${highlighted.author.id}`}
               className="text-base font-semibold tracking-tight hover:underline"

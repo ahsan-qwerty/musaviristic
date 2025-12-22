@@ -37,33 +37,37 @@ export default async function ArticleDetailPage({ params }) {
   const author = getAuthorById(article.authorId);
 
   return (
-    <main className="mx-auto flex max-w-3xl flex-col gap-6 px-4 py-8">
-      <header className="flex flex-col gap-2">
-        <h1 className="text-2xl font-semibold tracking-tight">
-          {article.title}
-        </h1>
-        <time
-          dateTime={article.publishDate}
-          className="text-sm text-foreground/70"
-        >
-          {new Date(article.publishDate).toLocaleDateString()}
-        </time>
-        {author ? (
-          <p className="text-sm text-foreground/70">
-            <Link
-              href={`/authors/${author.id}`}
-              className="font-medium hover:underline"
-            >
-              {author.name}
-            </Link>
-          </p>
-        ) : null}
-      </header>
+    <main className="mx-auto flex max-w-3xl flex-col px-4 py-10 sm:px-6 lg:px-0 lg:py-14">
+      <div className="rounded-3xl border border-foreground/10 bg-background/95 px-5 py-7 shadow-sm sm:px-7 sm:py-8 lg:px-10 lg:py-10">
+        <header className="mb-6 flex flex-col gap-2 sm:mb-8">
+          <h1 className="text-2xl font-semibold tracking-tight sm:text-3xl sm:leading-tight">
+            {article.title}
+          </h1>
+          <div className="flex flex-wrap items-center gap-3 text-sm text-foreground/70">
+            <time dateTime={article.publishDate}>
+              {new Date(article.publishDate).toLocaleDateString()}
+            </time>
+            {author ? (
+              <span className="h-1 w-1 rounded-full bg-foreground/40" aria-hidden="true" />
+            ) : null}
+            {author ? (
+              <p>
+                <Link
+                  href={`/authors/${author.id}`}
+                  className="font-medium hover:underline"
+                >
+                  {author.name}
+                </Link>
+              </p>
+            ) : null}
+          </div>
+        </header>
 
-      <article
-        className="prose max-w-none dark:prose-invert"
-        dangerouslySetInnerHTML={{ __html: article.content }}
-      />
+        <article
+          className="text-[15px] leading-relaxed sm:text-base sm:leading-8"
+          dangerouslySetInnerHTML={{ __html: article.content }}
+        />
+      </div>
     </main>
   );
 }
