@@ -63,10 +63,19 @@ export default async function ArticleDetailPage({ params }) {
           </div>
         </header>
 
-        <article
-          className="text-[15px] leading-relaxed sm:text-base sm:leading-8"
-          dangerouslySetInnerHTML={{ __html: article.content }}
-        />
+        <article className="text-[15px] leading-relaxed sm:text-base sm:leading-8">
+          {Array.isArray(article.content)
+            ? article.content.map((paragraph, idx) => (
+                <p key={idx} className="mb-5 last:mb-0">
+                  {paragraph}
+                </p>
+              ))
+            : null}
+        </article>
+
+        <div className="mt-8 border-t border-foreground/10 pt-4 text-xs text-foreground/60">
+          © {new Date(article.publishDate).getFullYear()} Musavir Jinsar. All rights reserved.
+        </div>
       </div>
     </main>
   );

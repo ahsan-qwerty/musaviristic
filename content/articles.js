@@ -1,37 +1,51 @@
 export const ARTICLES = [
   {
     id: "article-1",
-    title: "The Law of Emotional Frequency (Musavir Jinsar)",
-    content: `
-Why do we forget major events (both joyful and tragic) in life, yet remember
-small, seemingly insignificant moments forever?
-\n\n
-‘’Our minds tend to forget even the biggest joyful or tragic events when they occur
-frequently. When pain or happiness becomes a routine, we grow used to it — it no
-longer leaves a deep mark. Familiarity dulls emotional intensity over time. However,
-rare moments — no matter how small — stay etched in our subconscious because of
-their uniqueness. These one-time events, whether joyful or heartbreaking, break
-the rhythm of our emotional experiences and become unforgettable.’’
-
-We remember what stands out, not what repeats. Unforgettable experiences often
-share one or more of these traits:
- Something that happens once in a lifetime — a fleeting smile from a stranger
-that changed your mood or a failure that taught you more than success ever
-could.
- A moment you never saw coming, making it powerful and vivid.
- Moments where emotions were intense, regardless of the scale of the event.
- When you defy expectations or fall short of them, the impact is amplified by
-how society views it.
- Achievements or failures that carried deep personal value — something you
-longed for or feared deeply.
-Memory isn’t about the size of the event; it’s about emotional contrast, rarity,
-and personal significance. What happens every day fades? What happens once,
-stays.`,
+    title: "The Law of Emotional Frequency",
+    content: [
+      "Why do we forget major events (both joyful and tragic) in life, yet remember small, seemingly insignificant moments forever?",
+      "",
+      "‘’Our minds tend to forget even the biggest joyful or tragic events when they occur frequently. When pain or happiness becomes a routine, we grow used to it — it no longer leaves a deep mark. Familiarity dulls emotional intensity over time. However, rare moments — no matter how small — stay etched in our subconscious because of their uniqueness. These one-time events, whether joyful or heartbreaking, break the rhythm of our emotional experiences and become unforgettable.’’",
+      "",
+      "We remember what stands out, not what repeats. Unforgettable experiences often share one or more of these traits:",
+      "   • Something that happens once in a lifetime — a fleeting smile from a stranger that changed your mood or a failure that taught you more than success ever could.",
+      "   • A moment you never saw coming, making it powerful and vivid.",
+      "   • Moments where emotions were intense, regardless of the scale of the event.",
+      "   • When you defy expectations or fall short of them, the impact is amplified by how society views it.",
+      "   • Achievements or failures that carried deep personal value — something you longed for or feared deeply.",
+      "Memory isn’t about the size of the event; it’s about emotional contrast, rarity, and personal significance. What happens every day fades? What happens once, stays.",
+    ],
     featuredImage: "/images/article-1.png",
     authorId: "author-1",
-    publishDate: "2024-01-01T00:00:00.000Z",
-    tags: ["tag-one", "tag-two"]
+    publishDate: "2025-12-22T00:00:00.000Z",
+    tags: ["Emotional Frequency", "Unforgettable Experiences", "Memory", "Emotional Contrast"],
   },
-]
-
-
+  {
+    id: "article-2",
+    title: "Gen Z: The Storm or the Sunshine?",
+    content: ["There was a time when a word of correction was not an insult, but a gesture of care, a quiet reminder that someone still believed in you. When a child misbehaved, any elder; be it a teacher, a neighbor, or even the shopkeeper across the street could offer a word of guidance, and the parents would nod in appreciation. In those days, the village truly raised the child.",
+      "",
+      "Back then, homes had open doors and open hearts. A teacher’s scolding carried more weight than a parent’s lecture. A father’s silence could make a son rethink his choices. Faith guided our actions, and respect for elders wasn’t demanded it was instinctive. Life was slower, conversations were longer, and the world, though smaller, felt more connected.",
+      "",
+      "But as the calendar turned and the internet became our new neighborhood, something changed. Generation Z (born between the mid-1990s and early 2010s) the first truly digital-native generation now sees correction as intrusion. “Let me live my life,” they say, believing freedom must mean complete independence. For many, authority is outdated, tradition is restrictive, and faith is optional.",
+      "",
+      "They live by phrases like YOLO “You Only Live Once.” Hence, they want to enjoy and thrill at any cost. When counselled to follow moral codes they often question why instead of how. Such mantras have become a tool for Gen Z to justify their violations. A teenager may pass hours in crafting a TikTok dance or making an Instagram reel but rarely bothers to enquire about becoming a good human being. What he prioritizes now is become rich by 25, travel before 30 and become famous before 35. Even at home, a parent’s advice competes with the voices of influencers online some preaching hustle culture, others romanticizing rebellion.",
+      "",
+      "As an inevitable fact, Gen Z is vibrant and creative who have power to architect their own fortune even before they turn adults. Yet beneath their brilliance lack moral grounding. With values pushed to background, they struggle to find meaning beyond success, like or followers. They know how to make a trending reel but lag behind when it comes to consoling a grieving friend. They have an abundance of content to sell yet very little of it is aimed at societal reform.",
+      "",
+      "We celebrate achievements, but rarely ask “Are we becoming better human beings?” A child might know how to make a viral reel but not how to comfort a grieving friend. A teenager may debate climate change online yet fail to greet the gardener outside. Progress, it seems, has come at the cost of connection.",
+      "",
+      "Still, this is not a story of despair, it is a call to renewal. Gem Z cannot be regulated by hours of lectures but experiences only can touch their heart. Schools will have to introduce value based education that moves beyond slogans. For instance, they may be engaged in community projects with NGO’s or shelter homes where they can learn to care for elderly, plant trees or share half of their bread with a hungry child. Such activities can nurture kindness in their in their hearts and pull them away from being mere slaves to technology. Likewise, storytelling can work wonders. Gen Z will ask questions, elders will respond, the two way conversation result in wisdom meeting curiosity, and both will grow richer.",
+      "",
+      "And since Gen Z’s world is digital, rather than keeping them away from it, we must teach digital skills that focus upon how to disagree without disrespecting, how to verify before sharing, how to respond instead of reacting. Technology itself is not the villain, indifference is. If used wisely, smartphones may serve as a platform for awareness and social change.",
+      "",
+      "Every generation comes with a storm but also its sunshine. Take ourselves, the millennials (those born in between 1981 to 1996); we too were a challenge for generations before us. So, Gen Z’s rebellion is not an act of rejection but a search for purpose in this world. They need ears that listen to them, they need proofs, and they seek evidence because they perceive everything through a scientific lens. Hence, instead herding them, we must guide them towards the right path.",
+      "",
+      "It is high time to remind the youth and ourselves that progress without a purpose is emptiness. For when wisdom meets youth, and faith meets freedom, humanity progresses."
+    ],
+    featuredImage: "/images/article-2.png",
+    authorId: "author-1",
+    publishDate: "2025-12-22T00:00:00.000Z",
+    tags: ["Gen Z", "Moral Grounding", "Digital Skills", "Social Change"],
+  }
+];
