@@ -13,7 +13,7 @@ export function ChapterNavigation({ previousHref, nextHref }) {
   }
 
   return (
-    <nav className="mt-10 flex items-center justify-between gap-4 border-t border-foreground/10 pt-6 text-sm">
+    <nav className="mt-8 flex items-center justify-between gap-4 border-t border-foreground/10 pt-6 text-sm">
       <div className="flex-1">
         {previousHref ? (
           <Link
