@@ -25,7 +25,6 @@ Breaking any rule is a blocking error.
 ## TECH STACK (FIXED)
 
 - Next.js (App Router)
-- TypeScript preferred
 - Tailwind CSS
 - Next.js Image
 - Local structured content (temporary)
