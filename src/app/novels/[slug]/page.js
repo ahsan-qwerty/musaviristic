@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { getAllNovels, getNovelBySlug } from "@/lib/content/novels";
 import { getChaptersForNovel } from "@/lib/content/chapters";
+import { getAuthorById } from "@/lib/content/authors";
 import Link from "next/link";
 
 export async function generateStaticParams() {
@@ -33,6 +34,7 @@ export default function NovelDetailPage({ params }) {
   }
 
   const chapters = getChaptersForNovel(novel.slug);
+  const author = getAuthorById(novel.authorId);
 
   return (
     <main className="mx-auto flex max-w-3xl flex-col gap-6 px-4 py-8">
@@ -40,6 +42,16 @@ export default function NovelDetailPage({ params }) {
         <h1 className="text-2xl font-semibold tracking-tight">
           {novel.title}
         </h1>
+        {author ? (
+          <p className="text-sm text-foreground/70">
+            <Link
+              href={`/authors/${author.id}`}
+              className="font-medium hover:underline"
+            >
+              {author.name}
+            </Link>
+          </p>
+        ) : null}
       </header>
 
       <section className="space-y-2">

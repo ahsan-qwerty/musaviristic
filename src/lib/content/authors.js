@@ -1,4 +1,4 @@
-import authors from "../../content/authors.json";
+import authors from "../../../content/authors.json";
 
 /**
  * @typedef {Object} Author

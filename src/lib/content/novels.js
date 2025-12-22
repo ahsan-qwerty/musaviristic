@@ -28,4 +28,13 @@ export function getNovelBySlug(slug) {
   return novels.find((novel) => novel.slug === slug);
 }
 
+/**
+ * Get all novels written by a given author.
+ * @param {string} authorId
+ * @returns {Novel[]}
+ */
+export function getNovelsByAuthorId(authorId) {
+  return novels.filter((novel) => novel.authorId === authorId);
+}
+
 
