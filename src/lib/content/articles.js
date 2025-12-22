@@ -1,4 +1,4 @@
-import articles from "../../content/articles.json";
+import articles from "../../../content/articles.json";
 
 /**
  * @typedef {Object} Article
