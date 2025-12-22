@@ -26,3 +26,7 @@ body {
     "Segoe UI", sans-serif;
   line-height: 1.7;
 }
+
+img {
+  object-fit: fill;
+}

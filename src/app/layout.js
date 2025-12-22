@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
       >
         <div className="min-h-screen flex flex-col justify-between bg-gradient-to-b from-background to-background/80">
           <Header />
-          <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-0">
+          <div className="w-full mx-auto max-w-5xl px-4 sm:px-6 lg:px-0">
             {children}
           </div>
           <Footer />

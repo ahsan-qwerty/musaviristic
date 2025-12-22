@@ -26,6 +26,12 @@ export function Footer({ children }) {
               Novels
             </Link>
             <Link
+              href="/poetry"
+              className="hover:text-foreground"
+            >
+              Poetry
+            </Link>
+            <Link
               href="/authors"
               className="hover:text-foreground"
             >

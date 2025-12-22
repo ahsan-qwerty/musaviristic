@@ -33,6 +33,12 @@ export function Header({ logo, navigation, actions }) {
           Novels
         </Link>
         <Link
+          href="/poetry"
+          className="text-xs font-medium uppercase tracking-[0.18em] text-foreground/70 hover:text-foreground"
+        >
+          Poetry
+        </Link>
+        <Link
           href="/authors"
           className="text-xs font-medium uppercase tracking-[0.18em] text-foreground/70 hover:text-foreground"
         >
@@ -43,12 +49,14 @@ export function Header({ logo, navigation, actions }) {
 
   return (
     <header className="sticky top-0 z-20 border-b bg-background/80 backdrop-blur">
-      <div className="mx-auto flex max-w-5xl items-center justify-between gap-3 px-4 py-3 sm:gap-4 sm:py-4 lg:px-6">
+      <div className="mx-auto flex max-w-5xl flex-col items-start gap-2 px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:py-4 lg:px-6">
         <div className="flex items-center gap-2 sm:gap-3">{logo}</div>
-        <nav className="flex flex-1 flex-wrap items-center justify-end gap-x-4 gap-y-2 text-[11px] sm:text-xs md:justify-center">
+        <nav className="mt-1 flex w-full flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[11px] sm:mt-0 sm:w-auto sm:flex-1 sm:justify-center sm:text-xs">
           {navItems}
         </nav>
-        <div className="ml-2 flex items-center justify-end gap-2">{actions}</div>
+        <div className="ml-auto flex items-center justify-end gap-2 sm:ml-2">
+          {actions}
+        </div>
       </div>
     </header>
   );

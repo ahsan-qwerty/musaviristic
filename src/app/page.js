@@ -112,7 +112,7 @@ export default function Home() {
   const highlighted = getHighlightedAuthor();
 
   return (
-    <main className="mx-auto flex max-w-5xl flex-col gap-10 px-4 py-10 sm:px-6 lg:px-0 lg:py-14">
+    <main className="w-full mx-auto flex max-w-5xl flex-col gap-10 px-4 py-10 sm:px-6 lg:px-0 lg:py-14">
       {featuredArticle ? (
         <section className="space-y-4">
           <h2 className="text-lg font-semibold tracking-tight">
