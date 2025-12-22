@@ -2,8 +2,10 @@ import { getAllArticles } from "@/lib/content/articles";
 import { getAllAuthors } from "@/lib/content/authors";
 import { getAllNovels } from "@/lib/content/novels";
 import { getChaptersForNovel } from "@/lib/content/chapters";
+import { getAllPoemImages } from "@/lib/content/poetry";
 import { ArticleCard } from "@/components/ArticleCard";
 import Link from "next/link";
+import Image from "next/image";
 
 function getFeaturedArticle() {
   const articles = getAllArticles();
@@ -62,6 +64,7 @@ function getHighlightedAuthor() {
 
   const articles = getAllArticles();
   const novels = getAllNovels();
+  const poems = getAllPoemImages();
 
   const counts = new Map();
 
@@ -70,6 +73,7 @@ function getHighlightedAuthor() {
       author,
       articleCount: 0,
       novelCount: 0,
+      poemCount: 0,
     });
   }
 
@@ -86,6 +90,13 @@ function getHighlightedAuthor() {
       entry.novelCount += 1;
     }
   }
+  
+  for (const poem of poems) {
+    const entry = counts.get(poem.authorId);
+    if (entry) {
+      entry.poemCount += 1;
+    }
+  }
 
   let highlighted = null;
 
@@ -95,8 +106,8 @@ function getHighlightedAuthor() {
       continue;
     }
 
-    const currentTotal = entry.articleCount + entry.novelCount;
-    const highlightedTotal = highlighted.articleCount + highlighted.novelCount;
+    const currentTotal = entry.articleCount + entry.novelCount + entry.poemCount;
+    const highlightedTotal = highlighted.articleCount + highlighted.novelCount + highlighted.poemCount;
 
     if (currentTotal > highlightedTotal) {
       highlighted = entry;
@@ -106,10 +117,16 @@ function getHighlightedAuthor() {
   return highlighted;
 }
 
+function getPoetryImages(limit = 3) {
+  const poems = getAllPoemImages();
+  return poems.slice(0, limit);
+}
+
 export default function Home() {
   const featuredArticle = getFeaturedArticle();
   const latestChapters = getLatestChapters();
   const highlighted = getHighlightedAuthor();
+  const poetryImages = getPoetryImages();
 
   return (
     <main className="w-full mx-auto flex max-w-5xl flex-col gap-10 px-4 py-10 sm:px-6 lg:px-0 lg:py-14">
@@ -131,10 +148,9 @@ export default function Home() {
         </section>
       ) : null}
 
-      {latestChapters.length > 0 ? (
+      {/* {latestChapters.length > 0 ? (
         <section className="space-y-4">
           <h2 className="text-lg font-semibold tracking-tight">
-            {/* Label only, not content. */}
             Latest chapters
           </h2>
           <ul className="divide-y divide-foreground/10 rounded-3xl border border-foreground/10 bg-background/95">
@@ -164,6 +180,33 @@ export default function Home() {
             ))}
           </ul>
         </section>
+      ) : null} */}
+
+      {poetryImages.length > 0 ? (
+        <section className="space-y-4">
+          <h2 className="text-lg font-semibold tracking-tight">
+            {/* Label only, not content. */}
+            Poetry
+          </h2>
+          <div className="grid gap-5 sm:grid-cols-3">
+            {poetryImages.map((poem) => (
+              <div
+                key={poem.id}
+                className="overflow-hidden rounded-2xl border border-foreground/10 bg-background/95 shadow-sm"
+              >
+                <div className="relative aspect-[3/4] w-full">
+                  <Image
+                    src={poem.image}
+                    alt=""
+                    fill
+                    sizes="(min-width: 1024px) 320px, (min-width: 640px) 33vw, 100vw"
+                    priority={false}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
       ) : null}
 
       {highlighted ? (
@@ -186,7 +229,7 @@ export default function Home() {
             ) : null}
             <p className="mt-2 text-xs text-foreground/70">
               {highlighted.articleCount} articles · {highlighted.novelCount}{" "}
-              novels
+              novels · {highlighted.poemCount} poems
             </p>
           </div>
         </section>
@@ -194,4 +237,3 @@ export default function Home() {
     </main>
   );
 }
-

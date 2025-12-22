@@ -1,15 +1,18 @@
 [
   {
     "id": "poem-1",
-    "image": "/images/poem/poetry-1.jpeg"
+    "image": "/images/poem/poetry-1.jpeg",
+    "authorId": "author-1"
   },
   {
     "id": "poem-2",
-    "image": "/images/poem/poetry-2.jpeg"
+    "image": "/images/poem/poetry-2.jpeg",
+    "authorId": "author-1"
   },
   {
     "id": "poem-3",
-    "image": "/images/poem/poetry-3.jpeg"
+    "image": "/images/poem/poetry-3.jpeg",
+    "authorId": "author-1"
   }
 ]
 
