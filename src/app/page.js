@@ -174,7 +174,7 @@ export default function Home() {
                 ) : null}
                 <div className="mt-3 flex flex-wrap justify-start gap-2 sm:justify-start">
                   <span className="rounded-full border border-foreground/25 px-3 py-1 text-[11px] text-foreground/80">
-                    CTP-2018
+                    47 CTP
                   </span>
                   <span className="rounded-full border border-foreground/25 px-3 py-1 text-[11px] text-foreground/80">
                    • Thull
