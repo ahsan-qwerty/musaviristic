@@ -4,6 +4,8 @@ import { getArticlesByAuthorId } from "@/lib/content/articles";
 import { getNovelsByAuthorId } from "@/lib/content/novels";
 import { ArticleCard } from "@/components/ArticleCard";
 import { NovelCard } from "@/components/NovelCard";
+import { BookCard } from "@/components/BookCard";
+import { getBooksByAuthorId } from "@/lib/content/books";
 
 export async function generateStaticParams() {
   const authors = getAllAuthors();
@@ -38,6 +40,7 @@ export default async function AuthorPage({ params }) {
 
   const articles = getArticlesByAuthorId(author.id);
   const novels = getNovelsByAuthorId(author.id);
+  const books = getBooksByAuthorId(author.id);
 
   return (
     <main className="mx-auto flex max-w-5xl flex-col px-4 py-10 sm:px-6 lg:px-0 lg:py-14">
@@ -74,10 +77,9 @@ export default async function AuthorPage({ params }) {
           </section>
         ) : null}
 
-        {novels.length > 0 ? (
+        {/* {novels.length > 0 ? (
           <section className="mt-8 space-y-3">
             <h2 className="text-sm font-semibold uppercase tracking-[0.18em] text-foreground/60">
-              {/* Label only, not content. */}
               Novels
             </h2>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -86,6 +88,24 @@ export default async function AuthorPage({ params }) {
                   key={novel.id}
                   novel={novel}
                   href={`/novels/${novel.id}`}
+                />
+              ))}
+            </div>
+          </section>
+        ) : null} */}
+                {books.length > 0 ? (
+          <section className="mt-8 space-y-3">
+            <h2 className="text-sm font-semibold uppercase tracking-[0.18em] text-foreground/60">
+              Books
+            </h2>
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {books.map((book) => (
+                <BookCard
+                  key={book.id}
+                  book={book}
+                  href={book.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 />
               ))}
             </div>
