@@ -1,4 +1,4 @@
-import authors from "../../../content/authors.json";
+import { AUTHORS } from "../../../content/authors.js";
 
 /**
  * @typedef {Object} Author
@@ -13,7 +13,7 @@ import authors from "../../../content/authors.json";
  * @returns {Author[]}
  */
 export function getAllAuthors() {
-  return authors;
+  return AUTHORS;
 }
 
 /**
@@ -22,7 +22,5 @@ export function getAllAuthors() {
  * @returns {Author | undefined}
  */
 export function getAuthorById(id) {
-  return authors.find((author) => author.id === id);
+  return AUTHORS.find((author) => author.id === id);
 }
-
-
