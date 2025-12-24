@@ -3,6 +3,7 @@ import { getAllAuthors } from "@/lib/content/authors";
 import { getAllNovels } from "@/lib/content/novels";
 import { getChaptersForNovel } from "@/lib/content/chapters";
 import { getAllPoemImages } from "@/lib/content/poetry";
+import { getAllBooks } from "@/lib/content/books";
 import { ArticleCard } from "@/components/ArticleCard";
 import Link from "next/link";
 import Image from "next/image";
@@ -65,6 +66,7 @@ function getHighlightedAuthor() {
   const articles = getAllArticles();
   const novels = getAllNovels();
   const poems = getAllPoemImages();
+  const books = getAllBooks();
 
   const counts = new Map();
 
@@ -74,6 +76,7 @@ function getHighlightedAuthor() {
       articleCount: 0,
       novelCount: 0,
       poemCount: 0,
+      bookCount: 0,
     });
   }
 
@@ -98,6 +101,13 @@ function getHighlightedAuthor() {
     }
   }
 
+  for (const book of books) {
+    const entry = counts.get(book.authorId);
+    if (entry) {
+      entry.bookCount += 1;
+    }
+  }
+
   let highlighted = null;
 
   for (const entry of counts.values()) {
@@ -106,8 +116,8 @@ function getHighlightedAuthor() {
       continue;
     }
 
-    const currentTotal = entry.articleCount + entry.novelCount + entry.poemCount;
-    const highlightedTotal = highlighted.articleCount + highlighted.novelCount + highlighted.poemCount;
+    const currentTotal = entry.articleCount + entry.novelCount + entry.poemCount + entry.bookCount;
+    const highlightedTotal = highlighted.articleCount + highlighted.novelCount + highlighted.poemCount + highlighted.bookCount;
 
     if (currentTotal > highlightedTotal) {
       highlighted = entry;
@@ -122,14 +132,60 @@ function getPoetryImages(limit = 3) {
   return poems.slice(0, limit);
 }
 
+function getPrimaryAuthor() {
+  const authors = getAllAuthors();
+  return authors[0] ?? null;
+}
+
 export default function Home() {
   const featuredArticle = getFeaturedArticle();
   const latestChapters = getLatestChapters();
   const highlighted = getHighlightedAuthor();
   const poetryImages = getPoetryImages();
+  const primaryAuthor = getPrimaryAuthor();
 
   return (
     <main className="w-full mx-auto flex max-w-5xl flex-col gap-10 px-4 py-10 sm:px-6 lg:px-0 lg:py-14">
+      {primaryAuthor ? (
+        <section className="space-y-4">
+          <div className="rounded-3xl border border-foreground/10 bg-background/95 px-5 py-5 shadow-sm sm:px-6 sm:py-6">
+            <div className="flex flex-col items-start gap-5 sm:flex-row sm:items-start">
+              {primaryAuthor.profileImage ? (
+                <div className="flex justify-center sm:justify-start">
+                  <div className="relative h-24 w-24 overflow-hidden rounded-2xl border border-border/60 bg-foreground/5 sm:h-80 sm:w-80">
+                    <Image
+                      src={primaryAuthor.profileImage}
+                      alt=""
+                      fill
+                      sizes="160px"
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+              ) : null}
+              <div className="flex-1 text-left sm:text-left">
+                <h1 className="text-xl font-semibold tracking-tight sm:text-2xl sm:leading-tight">
+                  {primaryAuthor.name}
+                </h1>
+                {primaryAuthor.bio ? (
+                  <p className="mt-2 text-sm text-foreground/80">
+                    {primaryAuthor.bio}
+                  </p>
+                ) : null}
+                <div className="mt-3 flex flex-wrap justify-start gap-2 sm:justify-start">
+                  <span className="rounded-full border border-foreground/25 px-3 py-1 text-[11px] text-foreground/80">
+                    CPT-2018
+                  </span>
+                  <span className="rounded-full border border-foreground/25 px-3 py-1 text-[11px] text-foreground/80">
+                   • Thull
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      ) : null}
+
       {featuredArticle ? (
         <section className="space-y-4">
           <h2 className="text-lg font-semibold tracking-tight">
@@ -228,8 +284,8 @@ export default function Home() {
               </p>
             ) : null}
             <p className="mt-2 text-xs text-foreground/70">
-              {highlighted.articleCount} articles · {highlighted.novelCount}{" "}
-              novels · {highlighted.poemCount} poems
+              {highlighted.articleCount} articles · {highlighted.poemCount}{" "}
+              poems · {highlighted.bookCount} books
             </p>
           </div>
         </section>
