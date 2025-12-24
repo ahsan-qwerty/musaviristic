@@ -2,7 +2,7 @@
 ## Frontend-Only CMS-Ready Publishing Site
 
 This project is a **frontend-only implementation** of a publishing platform
-(articles, blogs, serialized novels).
+(articles, blogs, serialized novels, books).
 
 There is **NO CMS in this phase**, but the frontend **must be CMS-ready**.
 All architectural decisions must assume that content will later come from a
@@ -72,6 +72,12 @@ Pages may only import from `/lib/content`.
 { id, chapterNumber, title, content, publishDate }
 ```
 
+**Article**
+
+```ts
+{ id, title, content, featuredImage, authorId, publishDate, tags? }
+```
+
 ---
 
 ## REQUIRED FEATURES
@@ -79,6 +85,7 @@ Pages may only import from `/lib/content`.
 * Articles list & detail pages
 * Novels with chapter lists
 * Chapter reading page with Prev / Next navigation
+* Books
 * Author pages
 * Images inside content
 

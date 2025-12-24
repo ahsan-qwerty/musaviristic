@@ -20,10 +20,10 @@ export function Footer({ children }) {
               Articles
             </Link>
             <Link
-              href="/novels"
+              href="/books"
               className="hover:text-foreground"
             >
-              Novels
+              Books
             </Link>
             <Link
               href="/poetry"

@@ -27,10 +27,10 @@ export function Header({ logo, navigation, actions }) {
           Articles
         </Link>
         <Link
-          href="/novels"
+          href="/books"
           className="text-xs font-medium uppercase tracking-[0.18em] text-foreground/70 hover:text-foreground"
         >
-          Novels
+          Books
         </Link>
         <Link
           href="/poetry"
