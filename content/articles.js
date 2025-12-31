@@ -45,7 +45,7 @@ export const ARTICLES = [
     ],
     featuredImage: "/images/article-2.png",
     authorId: "author-1",
-    publishDate: "2025-12-22T00:00:00.000Z",
+    publishDate: "2025-12-23T00:00:00.000Z",
     tags: ["Gen Z", "Moral Grounding", "Digital Skills", "Social Change"],
   },
   {
@@ -61,6 +61,7 @@ export const ARTICLES = [
 `To maximize potential of social media, expansion of internet access to countryside, providing digital literacy in order to use it effectively and ensuring implementation of ethical regulations are need of an hour. If we commit to the ethical values, address challenges associated with social media, and  act as responsible citizens, social media can create even greater marvels.`  ],
     featuredImage: "/images/article-3.png",
     authorId: "author-1",
-    publishDate: "2025-12-22T00:00:00.000Z",
+    publishDate: "2025-12-25T00:00:00.000Z",
+    tags: ["Social Media", "Equalizer", "Digital Divide", "Misinformation", "Cyberbully"],
   },
 ];
