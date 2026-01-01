@@ -93,7 +93,7 @@ function getHighlightedAuthor() {
       entry.novelCount += 1;
     }
   }
-  
+
   for (const poem of poems) {
     const entry = counts.get(poem.authorId);
     if (entry) {
@@ -116,8 +116,13 @@ function getHighlightedAuthor() {
       continue;
     }
 
-    const currentTotal = entry.articleCount + entry.novelCount + entry.poemCount + entry.bookCount;
-    const highlightedTotal = highlighted.articleCount + highlighted.novelCount + highlighted.poemCount + highlighted.bookCount;
+    const currentTotal =
+      entry.articleCount + entry.novelCount + entry.poemCount + entry.bookCount;
+    const highlightedTotal =
+      highlighted.articleCount +
+      highlighted.novelCount +
+      highlighted.poemCount +
+      highlighted.bookCount;
 
     if (currentTotal > highlightedTotal) {
       highlighted = entry;
@@ -177,7 +182,7 @@ export default function Home() {
                     47 CTP
                   </span>
                   <span className="rounded-full border border-foreground/25 px-3 py-1 text-[11px] text-foreground/80">
-                   • Thull
+                    • Thull
                   </span>
                 </div>
               </div>
