@@ -57,14 +57,23 @@ export default function BooksPage() {
               ) : null}
             </CardHeader>
             <CardFooter className="mt-auto pt-0">
-              <Link
-                href={book.url}
-                className="text-xs font-medium text-foreground hover:underline"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View & download
-              </Link>
+              {book.readerType === "image-pages" ? (
+                <Link
+                  href={`/books/${book.id}/read`}
+                  className="text-xs font-medium text-foreground hover:underline"
+                >
+                  Read online
+                </Link>
+              ) : (
+                <Link
+                  href={book.url}
+                  className="text-xs font-medium text-foreground hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  View & download
+                </Link>
+              )}
             </CardFooter>
           </Card>
         ))}
