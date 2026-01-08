@@ -1,12 +1,10 @@
 [
   {
     "id": "novel-1",
-    "title": "First Novel",
-    "description": "Description for the first novel.",
-    "coverImage": "/images/novel-1.jpg",
+    "title": "The Six Nights Encounter",
+    "description": "The narrator, Musavir, met Sanvi Sinha from India, who is now settled in the UK.",
+    "coverImage": "/images/books/novel-1.png",
     "authorId": "author-1",
     "status": "ongoing"
   }
 ]
-
-

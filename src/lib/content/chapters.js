@@ -1,4 +1,4 @@
-import chapters from "../../../content/chapters.json";
+import { CHAPTERS } from "../../../content/chapters.js";
 
 /**
  * @typedef {Object} Chapter
@@ -16,9 +16,18 @@ import chapters from "../../../content/chapters.json";
  * @returns {Chapter[]}
  */
 export function getChaptersForNovel(novelId) {
-  return chapters
-    .filter((chapter) => chapter.novelId === novelId)
-    .sort((a, b) => a.chapterNumber - b.chapterNumber);
+  return CHAPTERS.filter((chapter) => chapter.novelId === novelId).sort(
+    (a, b) => a.chapterNumber - b.chapterNumber
+  );
+}
+
+/**
+ * Get a single chapter by its chapterId.
+ * @param {string} chapterId
+ * @returns {Chapter | undefined}
+ */
+export function getChapterById(chapterId) {
+  return CHAPTERS.find((chapter) => chapter.chapterId === chapterId);
 }
 
 /**
@@ -28,11 +37,8 @@ export function getChaptersForNovel(novelId) {
  * @returns {Chapter | undefined}
  */
 export function getChapterByNovelAndNumber(novelId, chapterNumber) {
-  return chapters.find(
+  return CHAPTERS.find(
     (chapter) =>
-      chapter.novelId === novelId &&
-      chapter.chapterNumber === chapterNumber
+      chapter.novelId === novelId && chapter.chapterNumber === chapterNumber
   );
 }
-
-
