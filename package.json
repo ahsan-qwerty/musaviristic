@@ -2,6 +2,7 @@
   "name": "musaviristic",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -14,9 +15,11 @@
     "clsx": "^2.1.1",
     "lucide-react": "^0.562.0",
     "next": "16.1.0",
+    "pdfjs-dist": "^5.4.530",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-markdown": "^10.1.0",
+    "react-pdf": "^10.3.0",
     "tailwind-merge": "^3.4.0",
     "tailwindcss-animate": "^1.0.7"
   },

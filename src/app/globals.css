@@ -133,3 +133,14 @@ img {
     @apply bg-background text-foreground;
   }
 }
+
+/* Prevent printing PDF content - additional security layer */
+@media print {
+  .pdf-container,
+  .pdf-document,
+  .pdf-page,
+  .react-pdf__Page__canvas {
+    display: none !important;
+    visibility: hidden !important;
+  }
+}

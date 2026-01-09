@@ -2,13 +2,14 @@ import { notFound, redirect } from "next/navigation";
 import { getBookById } from "@/lib/content/books";
 import { getAuthorById } from "@/lib/content/authors";
 import { BookReader } from "@/components/BookReader";
+import { PDFViewerWrapper } from "@/components/PDFViewerWrapper";
 
 export async function generateStaticParams() {
   const { getAllBooks } = await import("@/lib/content/books");
   const books = getAllBooks();
 
   return books
-    .filter((book) => book.readerType === "image-pages")
+    .filter((book) => book.readerType === "image-pages" || book.readerType === "pdf")
     .map((book) => ({
       id: book.id,
     }));
@@ -37,11 +38,15 @@ export default async function BookReaderPage({ params }) {
     notFound();
   }
 
-  if (!book.readerType || book.readerType !== "image-pages") {
+  if (!book.readerType || (book.readerType !== "image-pages" && book.readerType !== "pdf")) {
     redirect(`/books/${id}`);
   }
 
   const author = book.authorId ? getAuthorById(book.authorId) : null;
+
+  if (book.readerType === "pdf") {
+    return <PDFViewerWrapper book={book} author={author} />;
+  }
 
   return <BookReader book={book} author={author} />;
 }
